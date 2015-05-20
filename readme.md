@@ -9,6 +9,7 @@ It will not try to control you.
 something like this:
 
 	canalcan -upload video.mp4 <tag(s)>
+
 ###Why?
 >Because Youtube sucks.
 ###Other
