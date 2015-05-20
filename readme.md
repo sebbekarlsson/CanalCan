@@ -8,4 +8,4 @@ It will not try to control you.
 >CanalCan will also provide with the use of command-line video uploading.
 something like this:
 
-	canalcan -upload <username> <password> video.mp4 <tag(s)>
+	canalcan -upload video.mp4 <tag(s)>
