@@ -9,3 +9,6 @@ It will not try to control you.
 something like this:
 
 	canalcan -upload video.mp4 <tag(s)>
+###Other
+>Feel free to answer a couple questions to improve CanalCan:
+	http://goo.gl/forms/O2BmcENli2
