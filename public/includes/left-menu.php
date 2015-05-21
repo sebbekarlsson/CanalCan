@@ -12,10 +12,8 @@
 </div>
 <div id="body">
 	<ul>
-		<li><a class="btn">dotnet</a></li>
-		<li><a class="btn">dotnet</a></li>
-		<li><a class="btn">dotnet</a></li>
-		<li><a class="btn">dotnet</a></li>
-		<li><a class="btn">dotnet</a></li>
+		<li><a class="btn">Most Upvoted</a></li>
+		<li><a class="btn">Most Downvoted</a></li>
+		<li><a class="btn">Most recent videos</a></li>
 	</ul>
 </div>
