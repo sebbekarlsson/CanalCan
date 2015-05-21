@@ -7,10 +7,13 @@
 	</head>
 
 	<body>
-		<h1>This is a h1</h1>
-		<h2>This is a h2</h2>
-		<h3>This is a h3</h3>
-		<p>This is a paragraph</p>
+		<div id="content">
+			<div id="left-content">
+				<?php include("includes/left-menu.php"); ?>
+			</div>
+			<div id="right-content">
+			</div>
+		</div>
 	</body>
 
 	<footer>
