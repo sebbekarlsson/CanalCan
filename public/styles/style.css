@@ -74,8 +74,15 @@ html, body {
     height: 100vh;
     max-height: 100%;
     overflow: scroll; }
+    #content #right-content #content-head {
+      width: 100%;
+      height: 64px;
+      background-color: white; }
+      #content #right-content #content-head .text {
+        padding-left: 54px; }
 
 .video-flow {
+  width: 100%;
   display: flex;
   flex-wrap: wrap;
   justify-content: center; }
@@ -84,11 +91,19 @@ html, body {
     height: 128px;
     outline-color: lightgray;
     outline-style: solid;
+    outline-width: 1px;
+    margin: 4px;
     background-color: black;
     display: flex;
     align-items: center;
     justify-content: center; }
     .video-flow .video-item img {
       width: 128px; }
+  .video-flow .video-item:hover {
+    outline-color: blue;
+    cursor: pointer; }
+
+.text {
+  padding: 12px; }
 
 /*# sourceMappingURL=style.css.map */
