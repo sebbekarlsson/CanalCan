@@ -13,7 +13,10 @@
 			<p>So, we decided to do another prank, this one is pretty cool. We hope you...</p>
 		</div>
 		<div class="video-data">
-			<ul>
+			<ul class="left">
+				<li>Jason McNice</li>
+			</ul>
+			<ul class="right">
 				<li>273 0023 views</li>
 			</ul>
 		</div>

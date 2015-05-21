@@ -110,6 +110,10 @@ html, body {
         display: inline;
         margin-left: 4px;
         margin-right: 4px; }
+      .video-flow .video-item .video-data .left {
+        float: left; }
+      .video-flow .video-item .video-data .right {
+        float: right; }
   .video-flow .video-item:hover {
     outline-color: blue;
     cursor: pointer; }
