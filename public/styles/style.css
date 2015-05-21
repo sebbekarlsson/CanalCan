@@ -87,18 +87,29 @@ html, body {
   flex-wrap: wrap;
   justify-content: center; }
   .video-flow .video-item {
-    width: 128px;
-    height: 128px;
+    width: 300px;
+    height: 350px;
     outline-color: lightgray;
     outline-style: solid;
     outline-width: 1px;
     margin: 4px;
-    background-color: black;
-    display: flex;
-    align-items: center;
-    justify-content: center; }
+    background-color: white;
+    position: relative; }
     .video-flow .video-item img {
-      width: 128px; }
+      width: 300px; }
+    .video-flow .video-item .video-data {
+      width: 100%;
+      height: 32px;
+      line-height: 32px;
+      background-color: lightgray;
+      color: #303030;
+      position: absolute;
+      left: 0;
+      bottom: 0; }
+      .video-flow .video-item .video-data ul, .video-flow .video-item .video-data li {
+        display: inline;
+        margin-left: 4px;
+        margin-right: 4px; }
   .video-flow .video-item:hover {
     outline-color: blue;
     cursor: pointer; }
