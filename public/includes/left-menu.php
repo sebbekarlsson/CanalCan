@@ -1,7 +1,10 @@
 <div id="menu">
-	<ul>
+	<ul class="left">
 		<li><a class="btn">Login</a></li>
 		<li><a class="btn">Register</a></li>
+	</ul>
+	<ul class="right">
+		<li><a class="btn">Upload</a></li>
 	</ul>
 </div>
 <div style="clear:both;"></div>

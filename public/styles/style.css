@@ -35,6 +35,10 @@ html, body {
         #content #left-content #menu ul .btn:hover, #content #left-content #menu li .btn:hover {
           color: blue;
           cursor: pointer; }
+      #content #left-content #menu .left {
+        float: left; }
+      #content #left-content #menu .right {
+        float: right; }
     #content #left-content #head {
       height: 120px;
       border-bottom-color: lightgray;
