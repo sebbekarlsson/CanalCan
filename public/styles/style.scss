@@ -4,6 +4,10 @@
 	font-family: 'Roboto', sans-serif;
 }
 
+html, body{
+	overflow:hidden;
+}
+
 #content{
 	display:flex;
 
@@ -12,8 +16,8 @@
 	}
 
 	#left-content{
-		width:300;
-		height:100vh;
+		background-color:white;
+		width:300px;
 		border-right-color: lightgray;
 		border-right-width:1px;
 		border-right-style:solid;
@@ -93,5 +97,24 @@
 				}
 			}
 		}
+	}
+
+	#right-content{
+		height:100vh;
+		max-height: 100%;
+		overflow: scroll;
+	}
+}
+
+.video-flow{
+	display: flex;
+	flex-wrap:wrap;
+	justify-content:center;
+
+	.video-item{
+		width:128px;
+		height:128px;
+		outline-color:lightgray;
+		outline-style:solid;
 	}
 }

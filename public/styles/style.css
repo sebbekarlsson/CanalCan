@@ -3,13 +3,16 @@
   padding: 0;
   font-family: 'Roboto', sans-serif; }
 
+html, body {
+  overflow: hidden; }
+
 #content {
   display: flex; }
   #content .content-part {
     width: 100%; }
   #content #left-content {
-    width: 300;
-    height: 100vh;
+    background-color: white;
+    width: 300px;
     border-right-color: lightgray;
     border-right-width: 1px;
     border-right-style: solid; }
@@ -67,5 +70,19 @@
         background-color: lightgray;
         transition: .3s;
         cursor: pointer; }
+  #content #right-content {
+    height: 100vh;
+    max-height: 100%;
+    overflow: scroll; }
+
+.video-flow {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center; }
+  .video-flow .video-item {
+    width: 128px;
+    height: 128px;
+    outline-color: lightgray;
+    outline-style: solid; }
 
 /*# sourceMappingURL=style.css.map */

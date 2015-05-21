@@ -1,3 +1,9 @@
+<?php
+
+	$doc = $_GET['doc'];
+	$doc = "video-flow.php";
+
+?>
 <DOCTYPE html>
 <html>
 	<head>
@@ -8,10 +14,11 @@
 
 	<body>
 		<div id="content">
-			<div id="left-content">
+			<div id="left-content" class="content-part">
 				<?php include("includes/left-menu.php"); ?>
 			</div>
-			<div id="right-content">
+			<div id="right-content" class="content-part">
+				<?php include("includes/docs/$doc"); ?>
 			</div>
 		</div>
 	</body>
