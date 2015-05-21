@@ -83,6 +83,12 @@ html, body {
     width: 128px;
     height: 128px;
     outline-color: lightgray;
-    outline-style: solid; }
+    outline-style: solid;
+    background-color: black;
+    display: flex;
+    align-items: center;
+    justify-content: center; }
+    .video-flow .video-item img {
+      width: 128px; }
 
 /*# sourceMappingURL=style.css.map */

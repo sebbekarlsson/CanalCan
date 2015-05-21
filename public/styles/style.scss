@@ -116,5 +116,13 @@ html, body{
 		height:128px;
 		outline-color:lightgray;
 		outline-style:solid;
+		background-color:black;
+		display:flex;
+		align-items:center;
+		justify-content:center;
+
+		img{
+			width:128px;
+		}
 	}
 }
