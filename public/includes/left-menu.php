@@ -1,7 +1,11 @@
 <div id="menu">
 	<ul class="left">
+		<?php if(!is_loggedin()){ ?>
 		<li><a class="btn" href="index.php?doc=login.php">Login</a></li>
 		<li><a class="btn" href="index.php?doc=register.php">Register</a></li>
+		<?php }else{ ?>
+		<li><a class="btn" href="index.php?doc=logout.php">Logout</a></li>
+		<?php } ?>
 	</ul>
 	<ul class="right">
 		<li><a class="btn" href="index.php?doc=upload.php">Upload</a></li>
