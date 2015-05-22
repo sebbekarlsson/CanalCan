@@ -33,7 +33,7 @@ html, body {
           color: black;
           text-decoration: none; }
         #content #left-content #menu ul .btn:hover, #content #left-content #menu li .btn:hover {
-          color: blue;
+          color: #3498db;
           cursor: pointer; }
       #content #left-content #menu .left {
         float: left; }
@@ -71,7 +71,7 @@ html, body {
         margin-bottom: 1px;
         transition: .3s; }
       #content #left-content #body ul .btn:hover, #content #left-content #body li .btn:hover {
-        background-color: lightgray;
+        background-color: #3498db;
         transition: .3s;
         cursor: pointer; }
   #content #right-content {
@@ -105,7 +105,8 @@ html, body {
     outline-width: 1px;
     margin: 4px;
     background-color: white;
-    position: relative; }
+    position: relative;
+    transition: .3s; }
     .video-flow .video-item img {
       width: 300px; }
     .video-flow .video-item .video-data {
@@ -126,8 +127,11 @@ html, body {
       .video-flow .video-item .video-data .right {
         float: right; }
   .video-flow .video-item:hover {
-    outline-color: blue;
-    cursor: pointer; }
+    outline-color: #3498db;
+    background-color: #3498db;
+    color: white;
+    cursor: pointer;
+    transition: .3s; }
 
 .text {
   padding: 12px; }

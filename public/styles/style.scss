@@ -1,3 +1,6 @@
+$red: #c0392b;
+$blue: #3498db;
+
 *{
 	margin:0;
 	padding:0;
@@ -43,7 +46,7 @@ html, body{
 				}
 
 				.btn:hover{
-					color:blue;
+					color:$blue;
 					cursor:pointer;
 				}
 			}
@@ -99,7 +102,7 @@ html, body{
 				}
 
 				.btn:hover{
-					background-color:lightgray;
+					background-color:$blue;
 					transition:.3s;
 					cursor:pointer;
 				}
@@ -148,6 +151,7 @@ html, body{
 		margin:4px;
 		background-color:white;
 		position: relative;
+		transition:.3s;
 
 		img{
 			width:300px;
@@ -180,8 +184,11 @@ html, body{
 	}
 
 	.video-item:hover{
-		outline-color:blue;
+		outline-color:$blue;
+		background-color:$blue;
+		color:white;
 		cursor:pointer;
+		transition:.3s;
 	}
 }
 
