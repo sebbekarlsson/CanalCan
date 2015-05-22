@@ -11,4 +11,10 @@
 		<input type="password" class="intext" name="register_password_1" placeholder="Confirm Password"><br>
 		<input type="submit" class="btn" name="register_register" value="Register">
 	</form>
+	<?php
+
+		$user = new User(0);
+		$user->make(array("asp" => "bad", "php" => "good"));
+
+	?>
 </div>

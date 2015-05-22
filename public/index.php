@@ -1,4 +1,5 @@
 <?php
+	include("includes/API.php");
 
 	$doc = $_GET['doc'];
 	if(!isset($_GET['doc'])){
