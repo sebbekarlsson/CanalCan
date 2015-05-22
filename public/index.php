@@ -1,7 +1,9 @@
 <?php
 
 	$doc = $_GET['doc'];
-	$doc = "video-flow.php";
+	if(!isset($_GET['doc'])){
+		$doc = "video-flow.php";
+	}
 
 ?>
 <DOCTYPE html>

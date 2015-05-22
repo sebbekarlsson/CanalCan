@@ -1,10 +1,10 @@
 <div id="menu">
 	<ul class="left">
-		<li><a class="btn">Login</a></li>
-		<li><a class="btn">Register</a></li>
+		<li><a class="btn" href="index.php?doc=login.php">Login</a></li>
+		<li><a class="btn" href="index.php?doc=register.php">Register</a></li>
 	</ul>
 	<ul class="right">
-		<li><a class="btn">Upload</a></li>
+		<li><a class="btn" href="index.php?doc=upload.php">Upload</a></li>
 	</ul>
 </div>
 <div style="clear:both;"></div>
@@ -15,8 +15,7 @@
 </div>
 <div id="body">
 	<ul>
-		<li><a class="btn">Most Upvoted</a></li>
-		<li><a class="btn">Most Downvoted</a></li>
-		<li><a class="btn">Most recent videos</a></li>
+		<li><a class="btn" href="index.php?doc=video-flow.php&showtype=0">Most Recent</a></li>
+		<li><a class="btn" href="index.php?doc=video-flow.php&showtype=1">Most Viewed</a></li>
 	</ul>
 </div>
