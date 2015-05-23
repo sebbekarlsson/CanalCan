@@ -91,6 +91,9 @@ html, body {
       display: block;
       outline: none;
       width: 50%; }
+    #content #right-content form .textarea {
+      width: 50%;
+      display: block; }
 
 .video-flow {
   width: 100%;

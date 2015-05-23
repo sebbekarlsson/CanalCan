@@ -34,11 +34,21 @@ function redirect(){
 	}
 }
 
+function getRandomString($length = 10) {
+    $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+    $charactersLength = strlen($characters);
+    $randomString = '';
+    for ($i = 0; $i < $length; $i++) {
+        $randomString .= $characters[rand(0, $charactersLength - 1)];
+    }
+    return $randomString;
+}
+
 class User{
 	var $data;
 
 	function __construct($id){
-		$this->userID = $id;		
+		$this->data->id = $id;		
 	}
 
 	function make($args = array()){
@@ -48,9 +58,10 @@ class User{
 	function fetch_build(){
 		global $db;
 
-		$xe = $db->prepare("SELECT * FROM users WHERE userID=$id");
+		$xe = $db->prepare("SELECT * FROM users WHERE userID=".$this->data->id);
 		$xe->execute();
 		while(($row = $xe->fetch()) != false){
+			echo "asp";
 			$this->data->name = $row['userName'];
 			$this->data->password = $row['userPassword'];
 			$this->data->email = $row['userEmail'];
@@ -86,5 +97,41 @@ class User{
 		}
 
 		return $id;
+	}
+}
+
+class Video{
+	var $data;
+
+	function make($args = array()){
+		$this->data = (Object) $args;
+	}
+
+	function upload(){
+		global $db;
+		$data = $this->data;
+
+		$filename = getRandomString(10).".mp4";
+		if(!move_uploaded_file($data->file['tmp_name'], "uploads/videos/".$filename)){
+			return false;
+		}else{
+			$xe = $db->prepare("INSERT INTO videos (videoTitle, videoDescription, userID, videoViews, videoFile) VALUES('".$data->title."', '".$data->description."', ".$data->userID.", 0, '".$filename."')");
+			$xe->execute();
+
+			$videoID = $db->lastInsertId();
+
+			$tags = $data->tags;
+			if(is_array($tags)){
+				foreach ($tags as $tag) {
+					$xe = $db->prepare("REPLACE INTO tags (videoID, tagName) VALUES($videoID, '".$tag."')");
+					$xe->execute();
+				}
+			}else{
+				$xe = $db->prepare("REPLACE INTO tags (videoID, tagName) VALUES($videoID, $tags)");
+				$xe->execute();
+			}
+
+			return true;
+		}
 	}
 }
