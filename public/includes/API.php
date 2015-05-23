@@ -26,6 +26,14 @@ function user_exists($userName){
 	return ($count > 0);
 }
 
+function redirect(){
+	if(!is_loggedin()){
+		?>
+		<script>window.location.href="index.php";</script>
+		<?php
+	}
+}
+
 class User{
 	var $data;
 

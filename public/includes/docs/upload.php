@@ -1,3 +1,4 @@
+<?php redirect(); ?>
 <div id="content-head">
 	<div class="text">
 		<h2>Upload</h2>

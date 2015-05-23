@@ -8,7 +8,9 @@
 		<?php } ?>
 	</ul>
 	<ul class="right">
+		<?php if(is_loggedin()){ ?>
 		<li><a class="btn" href="index.php?doc=upload.php">Upload</a></li>
+		<?php } ?>
 	</ul>
 </div>
 <div style="clear:both;"></div>
