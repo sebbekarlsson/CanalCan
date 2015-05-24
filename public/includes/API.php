@@ -124,6 +124,16 @@ class Video{
 		}
 	}
 
+	function delete(){
+		global $db;
+		$fname = $this->data->filename;
+		$thumb = str_replace(".mp4", ".png", $fname);
+
+		$xe = $db->prepare("DELETE FROM videos, tags WHERE videoID=".$this->data->id);
+		unlink("uploads/videos/thumbs/$thumb");
+		unlink("uploads/videos/$fname");
+	}
+
 	function upload(){
 		global $db;
 		$data = $this->data;
@@ -188,8 +198,6 @@ class Video{
 			$half_h = floor($h/2);
 			$half_m = floor($m/2);
 			$half_s = floor($s/2);
-
-			echo "$half_h:$half_m:$half_s<br>";
 				
 			exec("ffmpeg -i uploads/videos/".$filename.".mp4 -ss $half_h:$half_m:$half_s -vframes 1 uploads/videos/thumbs/$filename.png");
 			return true;
