@@ -6,6 +6,8 @@
 	$user->fetch_build();
 	$thumb = str_replace(".mp4", ".png", $video->data->filename);
 
+	$video->addViewer(get_user_ip());
+
 ?>
 <div id="content-head">
   <link href="video-js/video-js.css" rel="stylesheet" type="text/css">
@@ -33,7 +35,7 @@
 	  </video>
 	  <nav id="video-data">
 	  	<ul class="right">
-	  		<li><?php echo $video->data->views; ?> views</li>
+	  		<li><?php echo count($video->getViewers()); ?> views</li>
 	  	</ul>
 	  </nav>
 	  <div class="text">

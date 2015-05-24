@@ -13,6 +13,10 @@ function is_loggedin(){
 	return isset($_SESSION['userID']);
 }
 
+function get_user_ip(){
+	return $_SERVER['REMOTE_ADDR'];
+}
+
 function user_exists($userName){
 	global $db;
 
@@ -118,10 +122,58 @@ class Video{
 			$this->data->title = $row['videoTitle'];
 			$this->data->description = $row['videoDescription'];
 			$this->data->filename = $row['videoFile'];
-			$this->data->views = $row['videoViews'];
 			$this->data->userID = $row['userID'];
 			$this->data->date = $row['videoDate'];
 		}
+	}
+
+	function hasViewed($ip){
+		global $db;
+
+		$count = 0;
+
+		$xe = $db->prepare("SELECT * FROM videoViews WHERE userIP='".$ip."' AND videoID=".$this->data->id);
+		$xe->execute();
+
+		while(($row = $xe->fetch()) != false){
+			$count++;
+		} 
+
+		return ($count > 0);
+
+	}
+
+	function addViewer($ip){
+		global $db;
+		$videoID = $this->data->id;
+
+		if(!$this->hasViewed($ip)){
+
+			if(!is_loggedin()){
+				$userID = -1;
+			}else{
+				global $USER;
+				$userID = $USER->data->id;
+			}
+			$xe = $db->prepare("INSERT INTO videoViews (userIP, userID, videoID) VALUES('$ip', $userID, ".$this->data->id.")");
+			$xe->execute();
+			var_dump($xe->errorInfo());
+		}
+	}
+
+	function getViewers(){
+		global $db;
+		$viewers = array();
+
+		$xe = $db->prepare("SELECT * FROM videoViews WHERE videoID=".$this->data->id);
+		$xe->execute();
+		while(($row = $xe->fetch()) != false){
+			$user = new User($row['userID']);
+			$user->fetch_build();
+			array_push($viewers, $user);
+		}
+
+		return $viewers;
 	}
 
 	function getShortDescription(){

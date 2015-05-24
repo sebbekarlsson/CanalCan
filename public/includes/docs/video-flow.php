@@ -34,7 +34,7 @@
 				<li><?php echo $user->data->name; ?></li>
 			</ul>
 			<ul class="right">
-				<li><?php echo $video->data->views; ?> views</li>
+				<li><?php echo count($video->getViewers()); ?> views</li>
 			</ul>
 		</div>
 	</div></a>
