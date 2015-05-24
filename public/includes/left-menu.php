@@ -22,7 +22,7 @@
 </div>
 <div id="body">
 	<ul>
-		<li><a class="btn" href="index.php?doc=video-flow.php&showtype=0">Most Recent</a></li>
-		<li><a class="btn" href="index.php?doc=video-flow.php&showtype=1">Most Viewed</a></li>
+		<li><a class="btn" href="index.php?doc=video-flow.php&showtype=0">20 most recent</a></li>
+		<li><a class="btn" href="index.php?doc=video-flow.php&showtype=1">20 most viewed</a></li>
 	</ul>
 </div>

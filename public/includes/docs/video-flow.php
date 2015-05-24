@@ -1,12 +1,29 @@
 <?php
-
+	
+	$showtype = $_GET['showtype'];
 	$videos = array();
-	$xe = $db->prepare("SELECT * FROM videos");
-	$xe->execute();
-	while(($row = $xe->fetch()) != false){
-		$video = new Video($row['videoID']);
-		$video->fetch_build();
-		array_push($videos, $video);
+
+	if($showtype == 0){
+
+		
+		$xe = $db->prepare("SELECT * FROM videos ORDER BY videoDate DESC LIMIT 20 OFFSET 0");
+		$xe->execute();
+		while(($row = $xe->fetch()) != false){
+			$video = new Video($row['videoID']);
+			$video->fetch_build();
+			array_push($videos, $video);
+			echo $row['v'];
+		}
+
+	}else if($showtype == 1){
+		$xe = $db->prepare("SELECT * FROM videos ORDER BY (SELECT count(*) FROM videoViews WHERE videoID=videos.videoID) DESC LIMIT 20 OFFSET 0");
+		$xe->execute();
+		while(($row = $xe->fetch()) != false){
+			$video = new Video($row['videoID']);
+			$video->fetch_build();
+			array_push($videos, $video);
+			echo $row['v'];
+		}
 	}
 
 ?>
