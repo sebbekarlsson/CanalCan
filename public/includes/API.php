@@ -124,12 +124,21 @@ class Video{
 		}
 	}
 
+	function getShortDescription(){
+		return substr($this->data->description, 0, 140);
+	}
+
 	function delete(){
 		global $db;
 		$fname = $this->data->filename;
 		$thumb = str_replace(".mp4", ".png", $fname);
 
-		$xe = $db->prepare("DELETE FROM videos, tags WHERE videoID=".$this->data->id);
+		$xe = $db->prepare("DELETE FROM videos WHERE videoID=".$this->data->id);
+		$xe->execute();
+
+		$xe = $db->prepare("DELETE FROM tags WHERE videoID=".$this->data->id);
+		$xe->execute();
+
 		unlink("uploads/videos/thumbs/$thumb");
 		unlink("uploads/videos/$fname");
 	}

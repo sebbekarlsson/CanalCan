@@ -27,7 +27,7 @@
 		<img src="uploads/videos/thumbs/<?php echo $thumb; ?>">
 		<div class="text">
 			<strong><?php echo $video->data->title; ?></strong>
-			<p><?php echo substr($video->data->description, 0, 140); ?></p>
+			<p><?php echo $video->getShortDescription(); ?></p>
 		</div>
 		<div class="video-data">
 			<ul class="left">

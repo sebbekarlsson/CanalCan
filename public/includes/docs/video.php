@@ -8,12 +8,8 @@
 
 ?>
 <div id="content-head">
-	<!-- Chang URLs to wherever Video.js files will be hosted -->
   <link href="video-js/video-js.css" rel="stylesheet" type="text/css">
-  <!-- video.js must be in the <head> for older IEs to work. -->
   <script src="video-js/video.js"></script>
-
-  <!-- Unless using the CDN hosted version, update the URL to the Flash SWF -->
   <script>
     videojs.options.flash.swf = "video-js/video-js.swf";
   </script>

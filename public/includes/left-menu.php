@@ -10,6 +10,7 @@
 	<ul class="right">
 		<?php if(is_loggedin()){ ?>
 		<li><a class="btn" href="index.php?doc=upload.php">Upload</a></li>
+		<li><a class="btn" href="index.php?doc=settings.php">Settings</a></li>
 		<?php } ?>
 	</ul>
 </div>
