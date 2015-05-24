@@ -176,7 +176,22 @@ class Video{
 				$xe->execute();
 			}
 
-			exec("ffmpeg -i uploads/videos/".$filename.".mp4 -ss 00:00:14.435 -vframes 1 uploads/videos/thumbs/$filename.png");
+			$output = array();
+			exec("ffmpeg -i uploads/videos/".$filename.".mp4 2>&1 | grep 'Duration'", $output);
+
+			$duration = str_replace("Duration: ", "", explode(",", $output[0])[0]);
+
+			$h = explode(":", $duration)[0];
+			$m = explode(":", $duration)[1];
+			$s = explode(":", $duration)[2];
+
+			$half_h = floor($h/2);
+			$half_m = floor($m/2);
+			$half_s = floor($s/2);
+
+			echo "$half_h:$half_m:$half_s<br>";
+				
+			exec("ffmpeg -i uploads/videos/".$filename.".mp4 -ss $half_h:$half_m:$half_s -vframes 1 uploads/videos/thumbs/$filename.png");
 			return true;
 		}
 	}
