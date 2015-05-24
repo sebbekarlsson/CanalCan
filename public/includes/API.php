@@ -157,7 +157,6 @@ class Video{
 			}
 			$xe = $db->prepare("INSERT INTO videoViews (userIP, userID, videoID) VALUES('$ip', $userID, ".$this->data->id.")");
 			$xe->execute();
-			var_dump($xe->errorInfo());
 		}
 	}
 
@@ -234,7 +233,7 @@ class Video{
 			$this->data->error = "Could not upload file";
 			return false;
 		}else{
-			$xe = $db->prepare("INSERT INTO videos (videoTitle, videoDescription, userID, videoViews, videoFile) VALUES('".$data->title."', '".$data->description."', ".$data->userID.", 0, '".$filename.".mp4')");
+			$xe = $db->prepare("INSERT INTO videos (videoTitle, videoDescription, userID, videoFile) VALUES('".$data->title."', '".$data->description."', ".$data->userID.", '".$filename.".mp4')");
 			$xe->execute();
 
 			$videoID = $db->lastInsertId();
