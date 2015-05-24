@@ -2,6 +2,8 @@
 
 	$video = new Video($_GET['id']);
 	$video->fetch_build();
+	$user = new User($video->data->userID);
+	$user->fetch_build();
 	$thumb = str_replace(".mp4", ".png", $video->data->filename);
 
 ?>
@@ -18,6 +20,7 @@
 
 	<div class="text">
 		<h2><?php echo $video->data->title; ?></h2>
+		<p>Uploaded by: <?php echo $user->data->name; ?></p>
 	</div>
 </div>
 <div class="text">
