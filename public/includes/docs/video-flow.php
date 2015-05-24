@@ -2,9 +2,11 @@
 	
 	$showtype = $_GET['showtype'];
 	$videos = array();
+	$flowtitle = "<h2>Videos</h2>";
 
 	if($showtype == 0){
-
+		$flowtitle = "<h2>Recent Videos</h2>
+		<p>Videos that were recently uploaded</p>";
 		
 		$xe = $db->prepare("SELECT * FROM videos ORDER BY videoDate DESC LIMIT 20 OFFSET 0");
 		$xe->execute();
@@ -16,6 +18,9 @@
 		}
 
 	}else if($showtype == 1){
+		$flowtitle = "<h2>Top Videos</h2>
+		<p>Videos ordered by the most views</p>";
+
 		$xe = $db->prepare("SELECT * FROM videos ORDER BY (SELECT count(*) FROM videoViews WHERE videoID=videos.videoID) DESC LIMIT 20 OFFSET 0");
 		$xe->execute();
 		while(($row = $xe->fetch()) != false){
@@ -29,8 +34,7 @@
 ?>
 <div id="content-head">
 	<div class="text">
-		<h2>The frontpage</h2>
-		<p>Videos with the most upvotes</p>
+		<?php echo $flowtitle; ?>
 	</div>
 </div>
 <div class="video-flow">
