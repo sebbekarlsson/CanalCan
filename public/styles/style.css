@@ -135,6 +135,9 @@ html, body {
     color: white;
     cursor: pointer;
     transition: .3s; }
+  .video-flow .video-href {
+    text-decoration: none;
+    color: black; }
 
 .text {
   padding: 12px; }

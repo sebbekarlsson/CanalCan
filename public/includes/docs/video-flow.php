@@ -23,11 +23,11 @@
 		$user->fetch_build();
 		$thumb = str_replace(".mp4", ".png", $video->data->filename);
 	?>
-	<div class="video-item">
+	<a class="video-href" href="index.php?doc=video.php&id=<?php echo $video->data->id; ?>"><div class="video-item">
 		<img src="uploads/videos/thumbs/<?php echo $thumb; ?>">
 		<div class="text">
 			<strong><?php echo $video->data->title; ?></strong>
-			<p><?php echo $video->data->description; ?></p>
+			<p><?php echo substr($video->data->description, 0, 140); ?></p>
 		</div>
 		<div class="video-data">
 			<ul class="left">
@@ -37,6 +37,6 @@
 				<li><?php echo $video->data->views; ?> views</li>
 			</ul>
 		</div>
-	</div>
+	</div></a>
 	<?php } ?>
 </div>
