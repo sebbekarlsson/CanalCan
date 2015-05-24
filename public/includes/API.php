@@ -61,7 +61,6 @@ class User{
 		$xe = $db->prepare("SELECT * FROM users WHERE userID=".$this->data->id);
 		$xe->execute();
 		while(($row = $xe->fetch()) != false){
-			echo "asp";
 			$this->data->name = $row['userName'];
 			$this->data->password = $row['userPassword'];
 			$this->data->email = $row['userEmail'];
@@ -111,8 +110,36 @@ class Video{
 		global $db;
 		$data = $this->data;
 
+		if($data->file['type'] != "video/mp4"){
+			$this->data->error = "The file needs to be video/mp4";
+			return false;
+		}
+
+		if(strlen($data->title) < 3){
+			$this->data->error = "The title needs to be at least 3 characters";
+			return false;
+		}
+
+		if(strlen($data->description) < 16){
+			$this->data->error = "The description must be at least 16 characters";
+			return false;
+		}
+
+		if(is_array($data->tags)){
+			if(count($data->tags) < 1){
+				$this->data->error = "You must include at least 1 tag";
+				return false;
+			}
+		}else{
+			if($data->tags == "" || strlen($data->tags) < 3){
+				$this->data->error = "Video was not uploaded, check your tag";
+				return false;
+			}
+		}
+
 		$filename = getRandomString(10).".mp4";
 		if(!move_uploaded_file($data->file['tmp_name'], "uploads/videos/".$filename)){
+			$this->data->error = "Could not upload file";
 			return false;
 		}else{
 			$xe = $db->prepare("INSERT INTO videos (videoTitle, videoDescription, userID, videoViews, videoFile) VALUES('".$data->title."', '".$data->description."', ".$data->userID.", 0, '".$filename."')");

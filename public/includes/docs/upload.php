@@ -34,7 +34,7 @@
 
 			$video->make($videoData);
 			if(!$video->upload()){
-				echo "<p>Could not upload video</p>";
+				echo "<p>".$video->data->error."</p>";
 			}else{
 				echo "<p>Video has been uploaded</p>";
 			}
