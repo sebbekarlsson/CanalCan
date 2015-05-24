@@ -18,8 +18,8 @@ html, body {
     border-right-style: solid; }
     #content #left-content #menu {
       width: 100%;
-      height: 32px;
-      line-height: 32px;
+      height: 64px;
+      line-height: 64px;
       float: right;
       border-bottom-color: lightgray;
       border-bottom-width: 1px;
