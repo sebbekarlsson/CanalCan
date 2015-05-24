@@ -102,8 +102,26 @@ class User{
 class Video{
 	var $data;
 
+	function __construct($id){
+		$this->data->id = $id;
+	}
+	
 	function make($args = array()){
 		$this->data = (Object) $args;
+	}
+
+	function fetch_build(){
+		global $db;
+		$xe = $db->prepare("SELECT * FROM videos WHERE videoID=".$this->data->id);
+		$xe->execute();
+		while(($row = $xe->fetch()) != false){
+			$this->data->title = $row['videoTitle'];
+			$this->data->description = $row['videoDescription'];
+			$this->data->filename = $row['videoFile'];
+			$this->data->views = $row['videoViews'];
+			$this->data->userID = $row['userID'];
+			$this->data->date = $row['videoDate'];
+		}
 	}
 
 	function upload(){
@@ -137,12 +155,12 @@ class Video{
 			}
 		}
 
-		$filename = getRandomString(10).".mp4";
-		if(!move_uploaded_file($data->file['tmp_name'], "uploads/videos/".$filename)){
+		$filename = getRandomString(10);
+		if(!move_uploaded_file($data->file['tmp_name'], "uploads/videos/".$filename.".mp4")){
 			$this->data->error = "Could not upload file";
 			return false;
 		}else{
-			$xe = $db->prepare("INSERT INTO videos (videoTitle, videoDescription, userID, videoViews, videoFile) VALUES('".$data->title."', '".$data->description."', ".$data->userID.", 0, '".$filename."')");
+			$xe = $db->prepare("INSERT INTO videos (videoTitle, videoDescription, userID, videoViews, videoFile) VALUES('".$data->title."', '".$data->description."', ".$data->userID.", 0, '".$filename.".mp4')");
 			$xe->execute();
 
 			$videoID = $db->lastInsertId();
@@ -158,6 +176,7 @@ class Video{
 				$xe->execute();
 			}
 
+			exec("ffmpeg -i uploads/videos/".$filename.".mp4 -ss 00:00:14.435 -vframes 1 uploads/videos/thumbs/$filename.png");
 			return true;
 		}
 	}

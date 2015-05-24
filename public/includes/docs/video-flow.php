@@ -1,3 +1,15 @@
+<?php
+
+	$videos = array();
+	$xe = $db->prepare("SELECT * FROM videos");
+	$xe->execute();
+	while(($row = $xe->fetch()) != false){
+		$video = new Video($row['videoID']);
+		$video->fetch_build();
+		array_push($videos, $video);
+	}
+
+?>
 <div id="content-head">
 	<div class="text">
 		<h2>The frontpage</h2>
@@ -5,19 +17,24 @@
 	</div>
 </div>
 <div class="video-flow">
-	<?php for($i = 0; $i < 1000; $i++){ ?>
+	<?php for($i = 0; $i < count($videos); $i++){
+		$video = $videos[$i];
+		$user = new User($video->data->userID);
+		$user->fetch_build();
+		$thumb = str_replace(".mp4", ".png", $video->data->filename);
+	?>
 	<div class="video-item">
-		<img src="images/brun.jpg">
+		<img src="uploads/videos/thumbs/<?php echo $thumb; ?>">
 		<div class="text">
-			<strong>Funny Prank Car</strong>
-			<p>So, we decided to do another prank, this one is pretty cool. We hope you...</p>
+			<strong><?php echo $video->data->title; ?></strong>
+			<p><?php echo $video->data->description; ?></p>
 		</div>
 		<div class="video-data">
 			<ul class="left">
-				<li>Jason McNice</li>
+				<li><?php echo $user->data->name; ?></li>
 			</ul>
 			<ul class="right">
-				<li>273 0023 views</li>
+				<li><?php echo $video->data->views; ?> views</li>
 			</ul>
 		</div>
 	</div>

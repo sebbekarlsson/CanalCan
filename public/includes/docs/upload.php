@@ -17,7 +17,7 @@
 
 		if(isset($_POST['upload_upload'])){
 			$file = $_FILES['uploaded_file'];
-			$video = new Video();
+			$video = new Video(-1);
 
 			$tags = $_POST['video_tags'];
 			if(substr_count($tags, ",") > 0){
