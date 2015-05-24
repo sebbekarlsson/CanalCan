@@ -142,4 +142,25 @@ html, body {
 .text {
   padding: 12px; }
 
+.video-area {
+  width: 80%;
+  margin: auto; }
+  .video-area #description {
+    height: 120px;
+    overflow: scroll; }
+  .video-area #video-data {
+    width: 100%;
+    height: 32px;
+    line-height: 32px;
+    background-color: lightgray;
+    color: #303030; }
+    .video-area #video-data ul, .video-area #video-data li {
+      display: inline;
+      margin-left: 4px;
+      margin-right: 4px; }
+    .video-area #video-data .left {
+      float: left; }
+    .video-area #video-data .right {
+      float: right; }
+
 /*# sourceMappingURL=style.css.map */
