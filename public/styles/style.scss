@@ -213,6 +213,9 @@ html, body{
 	#description{
 		height:120px;
 		overflow:scroll;
+		border-bottom-color:lightgray;
+		border-bottom-width: 1px;
+		border-bottom-style: solid;
 	}
 
 	#video-data{
