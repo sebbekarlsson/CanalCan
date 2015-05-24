@@ -13,6 +13,7 @@
 		<link rel="stylesheet" type="text/css" href="styles/style.css">
 		<link href='http://fonts.googleapis.com/css?family=Roboto:300' rel='stylesheet' type='text/css'>
 		<script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
+		<script src="js/autocomplete.js"></script>
 		<meta charset="utf-8">
 	</head>
 
