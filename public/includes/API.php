@@ -191,6 +191,9 @@ class Video{
 		$xe = $db->prepare("DELETE FROM tags WHERE videoID=".$this->data->id);
 		$xe->execute();
 
+		$xe = $db->prepare("DELETE FROM videoViews WHERE videoID=".$this->data->id);
+		$xe->execute();
+
 		unlink("uploads/videos/thumbs/$thumb");
 		unlink("uploads/videos/$fname");
 	}
