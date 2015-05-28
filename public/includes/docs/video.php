@@ -43,5 +43,10 @@
 	 	 <p><?php echo $video->data->description; ?></p>
 	 	</div>
 	  </div>
+	  <div class="text">
+	  	<form method="post">
+	  		<input type="text" class="intext" name="comment_new" placeholder="Comment">
+	  	</form>
+	  </div>
 	</div>
 </div>

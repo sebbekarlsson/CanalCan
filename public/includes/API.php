@@ -48,6 +48,17 @@ function getRandomString($length = 10) {
     return $randomString;
 }
 
+function cleanString($string){
+	$string = str_replace("'", "?#?", $string);
+	$string = strip_tags($string);
+
+	return $string;
+}
+
+function fixString($string){
+	return str_replace("?#?", "'", $string);
+}
+
 class User{
 	var $data;
 
@@ -78,7 +89,7 @@ class User{
 			return false;
 		}
 
-		$sql = "INSERT INTO users (userName, userEmail, userPassword) VALUES('".$this->data->name."', '".$this->data->email."', '".$this->data->password."')";
+		$sql = "INSERT INTO users (userName, userEmail, userPassword) VALUES('".cleanString($this->data->name)."', '".$this->data->email."', '".$this->data->password."')";
 		$xe = $db->prepare($sql);
 		$xe->execute();
 		
@@ -233,7 +244,7 @@ class Video{
 			$this->data->error = "Could not upload file";
 			return false;
 		}else{
-			$xe = $db->prepare("INSERT INTO videos (videoTitle, videoDescription, userID, videoFile) VALUES('".$data->title."', '".$data->description."', ".$data->userID.", '".$filename.".mp4')");
+			$xe = $db->prepare("INSERT INTO videos (videoTitle, videoDescription, userID, videoFile) VALUES('".cleanString($data->title)."', '".cleanString($data->description)."', ".$data->userID.", '".$filename.".mp4')");
 			$xe->execute();
 
 			$videoID = $db->lastInsertId();
@@ -241,11 +252,11 @@ class Video{
 			$tags = $data->tags;
 			if(is_array($tags)){
 				foreach ($tags as $tag) {
-					$xe = $db->prepare("REPLACE INTO tags (videoID, tagName) VALUES($videoID, '".$tag."')");
+					$xe = $db->prepare("REPLACE INTO tags (videoID, tagName) VALUES($videoID, '".cleanString($tag)."')");
 					$xe->execute();
 				}
 			}else{
-				$xe = $db->prepare("REPLACE INTO tags (videoID, tagName) VALUES($videoID, $tags)");
+				$xe = $db->prepare("REPLACE INTO tags (videoID, tagName) VALUES($videoID, '".cleanString($tags)."')");
 				$xe->execute();
 			}
 
