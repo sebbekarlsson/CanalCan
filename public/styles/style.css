@@ -165,6 +165,9 @@ html, body {
       float: left; }
     .video-area #video-data .right {
       float: right; }
+  .video-area .intext {
+    display: inline-block !important;
+    width: 80% !important; }
 
 .video-plank {
   width: 100%;

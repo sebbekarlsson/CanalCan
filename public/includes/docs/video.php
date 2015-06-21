@@ -46,6 +46,7 @@
 	  <div class="text">
 	  	<form method="post">
 	  		<input type="text" class="intext" name="comment_new" placeholder="Comment">
+	  		<input type="submit" name="comment_comment" value="Publish">
 	  	</form>
 	  </div>
 	</div>
